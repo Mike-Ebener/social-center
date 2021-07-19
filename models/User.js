@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-const userSchema = new Schema(
+const UserSchema = new Schema(
   {
     userName: {
       type: String,
@@ -19,18 +19,18 @@ const userSchema = new Schema(
     //   default: Date.now,
     //   get: createdAtVal => dateFormat(createdAtVal)
     // },
-    email: {
-        type: String,
-        required: true,
-        match: /.+\@.+\..+/,
-        unique: true
-    },
-    thoughts: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Thought'
-      }
-    ]
+    // email: {
+    //     type: String,
+    //     required: true,
+    //     match: /.+\@.+\..+/,
+    //     unique: true
+    // },
+//     thoughts: [
+//       {
+//         type: Schema.Types.ObjectId,
+//         ref: 'Thought'
+//       }
+//     ]
   },
   //friends goes here
   {
@@ -43,13 +43,13 @@ const userSchema = new Schema(
   }
 );
 
-// get total count of thoughts and replies on retrieval
-UserSchema.virtual('thoughtCount').get(function() {
-  return this.thoughts.reduce(
-    (total, thought) => total + thought.replies.length + 1,
-    0
-  );
-});
+// // get total count of thoughts and replies on retrieval
+// UserSchema.virtual('thoughtCount').get(function() {
+//   return this.thoughts.reduce(
+//     (total, thought) => total + thought.replies.length + 1,
+//     0
+//   );
+// });
 
 const User = model('User', UserSchema);
 
