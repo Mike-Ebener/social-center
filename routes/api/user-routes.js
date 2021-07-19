@@ -6,7 +6,7 @@ const {
     createUser,
     updateUser,
     deleteUser
-  } = require('../../controllers/user-controller');
+  } = require('../../controllers/user-controller.js');
 
 // /api/pizzas
 router
