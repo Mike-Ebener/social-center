@@ -11,14 +11,14 @@ const ReactionSchema = new Schema(
     reactionBody: {
       type: String
     },
-    // writtenBy: {
-    //   type: String
-    // },
-    // createdAt: {
-    //   type: Date,
-    //   default: Date.now,
-    //   get: createdAtVal => dateFormat(createdAtVal)
-    // }
+    writtenBy: {
+      type: String
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: createdAtVal => dateFormat(createdAtVal)
+    }
   },
   {
     toJSON: {
