@@ -14,23 +14,23 @@ const UserSchema = new Schema(
     //   required: true,
     //   trim: true
     // },
-    // createdAt: {
-    //   type: Date,
-    //   default: Date.now,
+    createdAt: {
+      type: Date,
+      default: Date.now
     //   get: createdAtVal => dateFormat(createdAtVal)
-    // },
-    // email: {
-    //     type: String,
-    //     required: true,
-    //     match: /.+\@.+\..+/,
-    //     unique: true
-    // },
-//     thoughts: [
-//       {
-//         type: Schema.Types.ObjectId,
-//         ref: 'Thought'
-//       }
-//     ]
+    },
+    email: {
+        type: String,
+        required: true,
+        // match: /.+\@.+\..+/,
+        unique: true
+    },
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Thought'
+      }
+    ]
   },
   //friends goes here
   {
