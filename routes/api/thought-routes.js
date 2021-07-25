@@ -9,9 +9,10 @@ const {
 // /api/comments/
 router.route('/:userId').post(addThought);
 
-// /api/comments/<pizzaId>/<commentId>
+// /api/comments/<userId>/<thoughtId>
 router
   .route('/:userId/:thoughtId')
+    // .route('/:thoughtId')
   .put(addReaction)
   .delete(removeThought);
 

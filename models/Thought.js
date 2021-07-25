@@ -4,10 +4,10 @@ const dateFormat = require('../utils/dateFormat');
 const ReactionSchema = new Schema(
   {
     // set custom id to avoid confusion with parent thought _id
-    reactionId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId()
-    },
+    // reactionId: {
+    //   type: Schema.Types.ObjectId,
+    //   default: () => new Types.ObjectId()
+    // },
     reactionBody: {
       type: String
     },
@@ -29,27 +29,27 @@ const ReactionSchema = new Schema(
 
 const ThoughtSchema = new Schema(
   {
-    // writtenBy: {
-    //   type: String
-    // },
+    writtenBy: {
+      type: String
+    },
     thoughtBody: {
       type: String
     },
-    // createdAt: {
-    //   type: Date,
-    //   default: Date.now,
+    createdAt: {
+      type: Date,
+      default: Date.now,
     //   get: createdAtVal => dateFormat(createdAtVal)
-    // },
-    // // use ReactionSchema to validate data for a reaction
-    // reactions: [ReactionSchema]
+    },
+    // use ReactionSchema to validate data for a reaction
+    reactions: [ReactionSchema]
   },
-//   {
-//     // toJSON: {
-//     //   virtuals: true,
-//     //   getters: true
-//     // },
-//     id: false
-//   }
+  {
+    toJSON: {
+      virtuals: true,
+      getters: true
+    },
+    id: false
+  }
 );
 
 // ThoughtSchema.virtual('reactionCount').get(function() {
